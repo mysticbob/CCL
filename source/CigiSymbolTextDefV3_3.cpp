@@ -199,7 +199,7 @@ int CigiSymbolTextDefV3_3::Unpack(Cigi_uint8 * Buff, bool Swap, void *Spec)
    // this version will walk off the end of the array if the array is not 
    // null-terminated
    Text = (char*)CDta.c;
-#elif defined( __GNUC__ )
+#elif defined( __GNUC__ ) and !defined( __APPLE__ )
    // this version adds bogus nulls to the end
 //   Text.assign( (char*)CDta.c, VariableDataSize );
    // this version is correct, but traverses the string twice (once to 
